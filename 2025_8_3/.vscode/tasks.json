@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-project",
+            "type": "shell",
+            "command": "C:/MinGW/bin/g++.exe",
+            "args": [
+                "${fileBasename}",
+                "SeqList.c",
+                "-g",
+                "-o",
+                "${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "编译主程序和模块，生成可调试的 .exe"
+        },
+        
+    ]
+}
