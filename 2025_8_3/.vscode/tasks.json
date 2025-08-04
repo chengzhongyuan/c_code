@@ -7,7 +7,7 @@
             "command": "C:/MinGW/bin/g++.exe",
             "args": [
                 "${fileBasename}",
-                "SeqList.c",
+                "SList.c",
                 "-g",
                 "-o",
                 "${fileBasenameNoExtension}.exe"
