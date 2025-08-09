@@ -7,7 +7,25 @@
 // 应忽略。nums2 的长度为 n 。
 #include <stdio.h>
 void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+    // 可选：简单的容量防御检查（非必须）
+    if (nums1Size < m + n) return;
 
+    int i = m - 1;        // nums1 有效区尾
+    int j = n - 1;        // nums2 尾
+    int k = m + n - 1;    // 写入位置尾
+
+    while (i >= 0 && j >= 0) {
+        if (nums1[i] > nums2[j]) {
+            nums1[k--] = nums1[i--];
+        } else {
+            nums1[k--] = nums2[j--];
+        }
+    }
+
+    // 若 nums2 仍有剩余，继续拷贝（nums1 剩余则已在原位，无需处理）
+    while (j >= 0) {
+        nums1[k--] = nums2[j--];
+    }
     
     
 }
