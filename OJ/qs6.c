@@ -42,6 +42,27 @@ SListNode* reverseList(SListNode* head){
 
 }
 
+SListNode* reverseList2(SListNode* head){
+    if(head == NULL || head->next == NULL)
+    {
+        return head;
+    }
+    SListNode* n1 = NULL;
+    SListNode* n2 = head;
+    SListNode* n3 = head->next;
+    while(n2)
+    {
+        // 反转
+        n2->next = n1;
+        // 移动指针
+        n1 = n2;
+        n2 = n3;
+        if(n3)
+            n3 = n3->next;
+    }
+    return n1;
+}
+
 void test(SListNode* head)
 {
     head->data = 100;
