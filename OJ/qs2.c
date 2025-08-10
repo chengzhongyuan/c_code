@@ -73,7 +73,7 @@ int main()
     int k = removeDuplicates_oj(nums, numsSize);
 
     printf("k = %d\n", k);
-    printf("Modified array: ");
+    printf("修改后的数组: ");
     for (int i = 0; i < k; i++) {
         printf("%d ", nums[i]);
     }
