@@ -6,7 +6,7 @@
 // 更改数组 nums ，使 nums 的前 k 个元素包含唯一元素，并按照它们最初在 nums 中出现的顺序排列。nums 的其余元素与 nums 的大小不重要。
 // 返回 k 。
 
-// 要实现一个函数去除数组中的重复元素，并返回新数组的长度。
+// 要实现一个函数去除数组中的重复元素
 // 我只需要和后一个数字去比较，如果后一个不一样的话一定没有重复的
 // int removeDuplicates(int* nums, int numsSize) {
 //     if (numsSize == 0) return;
@@ -65,7 +65,7 @@ int main() {
     int k = removeElement(nums, numsSize, val);
 
     printf("k = %d\n", k);
-    printf("Modified array: ");
+    printf("Modified Array: ");
     for (int i = 0; i < k; i++) {
         printf("%d ", nums[i]);
     }
