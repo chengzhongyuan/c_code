@@ -81,5 +81,25 @@ void SListPopBack(SListNode** pphead)
     
 }
 
+// 实现头插
+void SListPushFront(SListNode** pphead, SListDataType x)
+{
+    SListNode* newnode = CreateSListNode(x);
+    newnode->next = (*pphead);
+    *pphead = newnode;
+}
 
+// 实现头删
+void SListPopFront(SListNode** pphead)
+{
+    if(*pphead == NULL){
+      return;
+    }
+    else{
+        SListNode* dealnode = NULL;
+        dealnode = *pphead;
+        *pphead = (*pphead)->next;
+        free(dealnode);
+    }
+}
 
