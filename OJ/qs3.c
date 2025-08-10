@@ -36,7 +36,7 @@ int main() {
 
     quicksort(nums, 0, size - 1);
 
-    printf("Sorted array: ");
+    printf("¿ìÅÅÊı×é: ");
     for (int i = 0; i < size; i++) {
         printf("%d ", nums[i]);
     }
