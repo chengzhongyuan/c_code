@@ -50,7 +50,10 @@ int* addToArrayForm(int* num, int numSize, int k, int* returnSize) {
         }
         retARR[reti++] = ret;
     }
-    
+    if(NextNum == 1)
+    {
+        retARR[reti++] = 1;
+    }
     // ÄæÖÃÊı×é
         int left = 0;
         int right = reti-1;
