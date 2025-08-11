@@ -45,6 +45,41 @@ struct ListNode* removeElements(struct ListNode* head, int val) {
     return newhead;
 }
 
+
+// 课程代码
+struct ListNode* removeElement(struct ListNode* head, int val)
+{
+    struct ListNode* prev = NULL;
+    struct ListNode* cur = head;
+
+    while(cur)
+    {
+        // 当遇到值相等时的情况
+        if(cur->val == val)
+        {
+            if(cur == head)
+            {
+                head=cur->next;
+                free(cur);
+                cur = head;
+            }
+            // 遇到相同值并且不是头节点
+            else
+            {
+                prev->next = cur->next;
+                free(cur);
+                cur = prev->next;
+            }
+        }
+        // 没有遇到时正常的迭代
+        else
+        {
+            prev = cur;
+            cur = cur->next;
+        }
+    }
+    
+}
 int main()
 {
     struct ListNode* head = (struct ListNode*)malloc(sizeof(struct ListNode));
