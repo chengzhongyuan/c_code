@@ -8,7 +8,7 @@ typedef struct ListNode {
     struct ListNode *next;
 }ListNode;
 
-ListNode* revList(ListNode* phead)
+struct ListNode* revList(struct ListNode* phead)
 {
     // 之前讲到过逆置链表两种方法
     // 这里使用原地逆置
@@ -21,7 +21,7 @@ ListNode* revList(ListNode* phead)
         return phead;
     }
     else{
-        ListNode* n1, *n2, *n3;
+        struct ListNode* n1, *n2, *n3;
         n1 = NULL;
         n2 = phead;
         n3 = phead->next;
@@ -42,20 +42,26 @@ ListNode* revList(ListNode* phead)
 
 bool isPalindrome(struct ListNode* head) {
     // 先通过快慢指针找到中间值
-    ListNode* slow, *fast;
+    struct ListNode* slow, *fast;
     slow = fast = head;
     while (fast && fast->next)
     {
         slow = slow->next;
         fast = fast->next->next;
     }
-    ListNode* middleNode = slow;
-    free(slow);
-    free(fast);
+    struct ListNode* middleNode = slow;
     // 然后逆置链表
-    slow = revList(slow);
-
-    
+    struct ListNode*secondHalf = revList(slow);
+    // 比较前后半段
+    struct ListNode* firstHalf = head;
+    while (secondHalf) {
+        if (firstHalf->val != secondHalf->val) {
+            return false;
+        }
+        firstHalf = firstHalf->next;
+        secondHalf = secondHalf->next;
+    }
+    return true;
 }
 
 int main()
@@ -72,7 +78,6 @@ int main()
     n4->next = n5;
     n5->next = NULL;
     n1->val = 1, n2->val = 2,n3->val = 3,n4->val = 2,n5->val = 1;
-    int a = isPalindrome(n1);
+    bool a = isPalindrome(n1);
     printf("%d", a);
-    
 }
