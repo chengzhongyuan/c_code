@@ -6,11 +6,11 @@
             "type": "shell",
             "command": "C:/MinGW/bin/g++.exe",
             "args": [
-                "2025_8_1.c",
-                "SeqList.c",
+                "test.c",
+                "list.c",
                 "-g",
                 "-o",
-                "2025_8_1.exe"
+                "test.exe"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
