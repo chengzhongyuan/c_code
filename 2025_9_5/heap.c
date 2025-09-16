@@ -75,4 +75,52 @@ void HeapInit(HP* php, HPDataType* a, int n)
 
 }
 
+void HeapDestroy(HP* php)
+{
+    assert(php);
+    free(php->_a);
+    return;
+}
+
+// // 要插入一个数据，对一个堆插入数据
+// void HeapPush(HP* php, HPDataType x)
+// {
+//     // 加入插入数据之后不是小堆了呢
+//     // 存入数据之后还需要保持性质
+//     // 插入的数据只会影响一条根 logN时间复杂度
+//     assert(php);
+// }
+void AdjustUp(HPDataType* a, int child) {
+    int parent = (child - 1) / 2;
+    while (child > 0) {
+        if (a[child] < a[parent]) {
+            Swap(&a[child], &a[parent]);
+            child = parent;
+            parent = (child - 1) / 2;
+        } else {
+            break;
+        }
+    }
+}
+
+void HeapPush(HP* php, HPDataType x) {
+    // 扩容（如果需要）
+    if (php->_size == php->_capacity) {
+        int newCapacity = php->_capacity == 0 ? 4 : php->_capacity * 2;
+        HPDataType* tmp = (HPDataType*)realloc(php->_a, sizeof(HPDataType) * newCapacity);
+        if (tmp == NULL) {
+            printf("内存分配失败\n");
+            exit(-1);
+        }
+        php->_a = tmp;
+        php->_capacity = newCapacity;
+    }
+
+    // 插入新元素到末尾
+    php->_a[php->_size] = x;
+    php->_size++;
+
+    // 向上调整，保持小堆性质
+    AdjustUp(php->_a, php->_size - 1);
+}
 
