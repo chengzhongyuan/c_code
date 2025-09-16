@@ -1,4 +1,28 @@
 #include "heap.h"
+
+// 堆排序
+void HeapSort(int* a, int n)
+{
+    // 1. 建堆
+    // 假设这个有N个节点，那么树的高度logN
+    // 这里的时间复杂度该如何去计算呢
+    // 时间复杂度是O(N)
+    for(int i=(n-1-1)/2; i >= 0; --i)
+    {
+        // 慢慢调整使得满足条件，左右子树都是小堆或者大堆
+        AdjustDown(a, n, i);
+    }
+    // 想要排序把第排好的第一个最小数据放入最后，并且不放入新一轮的排序
+    int end = n-1;// 记录最后一个数
+    while(end > 0)
+    {
+        Swap(&a[0], &a[end]);
+
+        // 再选出最小的
+        AdjustDown(a, end, 0);
+        --end;
+    }
+}
 // 交换数据
 void Swap(HPDataType* p1, HPDataType* p2)
 {
@@ -45,6 +69,7 @@ void HeapInit(HP* php, HPDataType* a, int n)
     // 从倒数第二个非叶子节点去调整
     for(int i = (n-1-1) / 2;i >= 0; --i)
     {
+        // 慢慢调整使得满足条件，左右子树都是小堆或者大堆
         AdjustDown(php->_a, php->_size, i);
     }
 

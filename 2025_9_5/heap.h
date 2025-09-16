@@ -35,3 +35,4 @@ int HeapSize(HP* php);
 void AdjustDown(HPDataType* a, int n, int root);
 // 还需要有一个交换的过程，去构建堆
 void Swap(HPDataType* p1, HPDataType* p2);
+void HeapSort(int* a, int n);
