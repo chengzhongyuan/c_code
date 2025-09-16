@@ -124,3 +124,25 @@ void HeapPush(HP* php, HPDataType x) {
     AdjustUp(php->_a, php->_size - 1);
 }
 
+
+// 删除数据
+void HeapPop(HP* php)
+{
+    assert(php);
+    assert(php->_size > 0);
+    // 这个是要删除堆顶部的数据
+    // 这个时候我不想改变剩余小堆数据，我把最后一个数据提上来覆盖第一个
+    // 然后再执行不就可以了吗
+    php->_a[0] = php->_a[php->_size-1];
+    php->_size -= 1;
+    // 这个时候我再进行堆排序
+    // 只需要使用这个函数
+    AdjustDown(php->_a, php->_size, 0);
+}
+
+// 获取堆顶数据
+HPDataType HeapTop(HP* php)
+{
+    return php->_a[0];
+}
+
