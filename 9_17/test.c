@@ -68,6 +68,15 @@ int LeafCount(TNode* root)
     return LeafCount(root->left) + LeafCount(root->right);
 }
 
+int TreeDepth(TNode* root)
+{
+    if (root == NULL)
+        return 0;
+    int leftDepth = TreeDepth(root->left);
+    int rightDepth = TreeDepth(root->right);
+    return (leftDepth > rightDepth ? leftDepth : rightDepth) + 1;
+}
+
 TNode* newNode(int v) {
     TNode* p = (TNode*)malloc(sizeof(TNode));
     if (!p) return NULL;
