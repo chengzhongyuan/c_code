@@ -106,11 +106,11 @@ TNode* buildExampleTree() {
 }
 /*
 创建的二叉树的直观结构
-        A
+        1
        / \
-      B   C
+      2   3
      / \   \
-    D   E   F
+    4   5   6
 */
 
 void freeTree(TNode* root) {
