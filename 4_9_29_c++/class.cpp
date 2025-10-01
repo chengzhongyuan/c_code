@@ -2,3 +2,8 @@
 #include <iostream>
 using namespace std;
 #include "class.h"
+
+int main()
+{
+    Date d1(2024, 6, 10);
+}

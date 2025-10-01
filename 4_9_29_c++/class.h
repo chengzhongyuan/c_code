@@ -35,6 +35,29 @@ public:
         }
     }
 
+    // bool operator>=(const Date& d) {
+    //     if (_year != d._year) {
+    //         return _year > d._year;
+    //     }
+    //     else if (_month != d._month) {
+    //         return _month > d._month;
+    //     }
+    //     else if (_day != d._day) {
+    //         return _day > d._day;
+    //     }
+    //     else {
+    //         return true;
+    //     }
+    // }
+
+    // 直接调用this指针来完成>=的重载
+    // 比如说我去加上时分秒，这个时候可以帮我减少工作量，需要改的地方比较少
+    bool operator>=(const Date& d) {
+        // 啊使用==和>来完成>=的重载
+        return (*this == d) || (*this > d);
+    }
+    // 内聚和耦合
+
 private:
     int _year;
     int _month;
