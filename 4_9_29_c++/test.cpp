@@ -42,19 +42,22 @@ int main()
 {
     // 1、拷贝构造函数 
     Date d1(2020,5,4);
-    Date d2(d1);// 这个就是拷贝构造，调用之前要先传参数
-    Date d3=d1;// 这个也是拷贝构造
-    d1.display();
-    d2.display();
-    d3.display();
+    // Date d2(d1);// 这个就是拷贝构造，调用之前要先传参数
+    // Date d3=d1;// 这个也是拷贝构造
+    // d1.display();
+    // d2.display();
+    // d3.display();
     // 2、运算符重载 
     // 假如Date的对象想去比较大小
-    d1 == d2;
+    Date d2(2020, 2, 4);
     // 编译器进行这样的转换
-    d1.operator==(d3);
-    if(d1==d2){
-        cout<<"d1==d2"<<endl;
-    }
+    d1.operator==(d2);
+    d1 = d2;
+    d1.display();
+    d2.display();
+    // if(d1==d2){
+    //     cout<<"d1==d2"<<endl;
+    // }
     // 五个不可以重载运算符
     // 1、::  作用域运算符
     // 2、.*  成员指针运算符
