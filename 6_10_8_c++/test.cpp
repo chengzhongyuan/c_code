@@ -56,15 +56,58 @@ void g(const int *p) {
 }
 
 
+int n=0;
 
-
+class A
+{
+public:
+    A()
+    {
+        ++n;
+        ++i;
+    }
+    A(const A& a)
+    {
+        ++n;
+        ++i;
+    }
+    void Printi()
+    {
+        cout<<i<<endl;
+    }
+private:
+    static int i; // 这仅仅只是一个声明
+};
+int A::i=0;
+A f1(A a)
+{
+    return a;
+}
 
 int main() {    
     Date d1(2023, 10, 1); // 调用有参构造函数
     // 初始化列表是对象的成员变量定义的地方
     // 对于取地址的重载,其实就是直接返回this指针
-    
+    // 先声明先初始化,成员变量声明的顺序才是初始化的顺序
     // 内联函数不要声明和定义分离 
+    int i=1;
+    
+    // double d = i; // 这中间存在着隐式类型转换,会产生一个临时变量,临时变量具有常性
+    // double &d=i; // 所以这里加上引用之后就会报错因为出现了权限放大的情况
+    const double &d=i; // 加一个const可以解决
+    // 不希望隐式类型转换可以加关键字
+    // explicit
+    // static 静态成员变量
+    // 设计一个类可以计算这个类总计产生了多少对象
+    A a1;
+    A a2;
+
+    f1(a1);
+    f1(a2);
+    
+    cout<<n<<endl;
+    a1.Printi();
+
     return 0;  
 }
 
