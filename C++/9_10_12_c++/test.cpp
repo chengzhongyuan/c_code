@@ -31,11 +31,12 @@ template<class T>
         {
             return _size;
         }
-
-        T operator[](size_t i)
+        // 引用传递返回值，修改返回对象
+        T& operator[](size_t i)
         {
             assert(i < _size);
-            return _a[i];
+            return _a[i]; 
+            // 这是一个传值的方式返回，会拷贝一个临时变量，但是临时变量具有常性质
         }
     };
 
@@ -60,7 +61,7 @@ template<class T>
     template<class T>
     void vector<T>::push_pop()
     {
-        assert(_size > 0)
+        assert(_size > 0);
         _size--;
     }
  
@@ -78,6 +79,7 @@ int main() {
     vector<int> v(10);
     v.pushback(1);
     v.pushback(2);
+    v[1]/*所以此时这个数是不允许你去修改的，怎么办呢？*/ = v[1]*2; 
     for(size_t i = 0; i<v.size(); i++)
     {
         cout<<v[i]<<" ";
