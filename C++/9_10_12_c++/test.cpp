@@ -1,6 +1,8 @@
 #include<iostream>
 #include<assert.h>
-
+// 模板的语法
+// 模板的原理
+// 理解基础语法 类和对象 模板 去解决C语言解决不了的问题和意义
 using namespace std;
 // 内存管理收尾
 template<class T>
@@ -77,6 +79,7 @@ int main() {
     // 模板的原理就是把原本我的工作交给编译器，让他根据函数模板和类模板的类型去实例化出对应的函数和类
     
     vector<int> v(10);
+    // 隐式实例化
     v.pushback(1);
     v.pushback(2);
     v[1]/*所以此时这个数是不允许你去修改的，怎么办呢？*/ = v[1]*2; 
