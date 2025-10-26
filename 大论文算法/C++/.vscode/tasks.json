@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build astar",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+          "astar_visual.cpp",
+          "-o",
+          "astar_visual.exe",
+          "-IC:/opencv/build/include",
+          "-LC:/opencv/build/x64/vc15/lib",
+          "-lopencv_core480",
+          "-lopencv_highgui480",
+          "-lopencv_imgproc480",
+          "-lopencv_imgcodecs480"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": []
+      }
+    ]
+  }
+  
